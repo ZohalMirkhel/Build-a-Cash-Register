@@ -19,15 +19,24 @@ const cashDrawerDisplay = document.getElementById('cash-drawer-display');
 const paymentMethod = document.getElementById('payment-method');
 const printReceiptBtn = document.getElementById('print-receipt-btn');
 
+
+const initializeUI = () => {
+  priceScreen.innerHTML = `Total: $${price.toFixed(2)}`;
+  updateUI([]);
+};
+
+
 const formatResults = (status, change) => {
   displayChangeDue.innerHTML = `<p>Status: ${status}</p>`;
   change.forEach(money => (displayChangeDue.innerHTML += `<p>${money[0]}: $${money[1].toFixed(2)}</p>`));
 };
 
+
 const adjustLayout = () => {
   const mainContainer = document.querySelector('.main-container');
   mainContainer.style.alignItems = 'flex-start';
 };
+
 
 const checkCashRegister = () => {
   if (Number(cash.value) < price) {
@@ -81,7 +90,9 @@ const checkCashRegister = () => {
   formatResults(result.status, result.change);
   updateUI(result.change);
   adjustLayout();
+  cash.value = '';
 };
+
 
 const printReceipt = () => {
   const receipt = `
@@ -94,6 +105,7 @@ const printReceipt = () => {
   newWindow.print();
   newWindow.close();
 };
+
 
 const updateUI = (change) => {
   cashDrawerDisplay.innerHTML = '<h2>Change in Cash Drawer</h2>';
@@ -117,26 +129,19 @@ const updateUI = (change) => {
   });
 };
 
-const buttons = document.querySelectorAll('.btn');
-buttons.forEach(button => {
-  button.addEventListener('click', e => {
-    const btnValue = e.target.textContent;
-    if (btnValue === 'x') {
-      cash.value = '';
-    } else {
-      cash.value += btnValue;
-    }
-  });
-});
 
-purchaseBtn.addEventListener('click', checkCashRegister);
-printReceiptBtn.addEventListener('click', printReceipt);
-
-cash.addEventListener('keydown', e => {
-  if (e.key === 'Enter') {
-    checkCashRegister();
-  }
+purchaseBtn.addEventListener('click', (event) => {
+  event.preventDefault();
+  checkCashRegister();
 });
 
 
-updateUI(cid);
+printReceiptBtn.addEventListener('click', (event) => {
+  event.preventDefault();
+  printReceipt();
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  initializeUI();
+});
