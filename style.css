@@ -7,7 +7,40 @@ body {
   align-items: center;
   min-height: 100vh;
   margin: 0;
+  padding: 0;
+}
+
+.main-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1000px;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background-color: #fff;
+  padding: 30px;
+}
+
+.left-container {
+  flex: 0 0 30%;
+}
+
+.right-container {
+  flex: 1;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cash-drawer-display {
   padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #f9fafb;
+  margin-top: 80px;
 }
 
 main {
@@ -41,27 +74,11 @@ label {
 }
 
 #change-due {
-  margin-bottom: 20px;
-  background: #e8f0fe;
+  margin-top: 20px;
   padding: 15px;
   border-radius: 8px;
-  font-size: 1.2rem;
-}
-
-.container {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  max-width: 1000px;
-  width: 100%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  background-color: #fff;
-  padding: 30px;
-}
-
-.top-display-screen-container {
-  flex: 0 0 30%;
+  font-size: 1rem;
+  background: #e8f0fe;
 }
 
 .price-screen {
@@ -77,11 +94,6 @@ label {
   height: 4px;
   background-color: #333;
   margin: 10px 0;
-}
-
-.top-register {
-  flex: 1;
-  margin-left: 20px;
 }
 
 .btns-container {
@@ -106,43 +118,64 @@ label {
   background-color: #bbb;
 }
 
-.cash-drawer-display {
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 1rem;
-  background-color: #f9fafb;
-  margin-bottom: 20px;
+.Pbtn {
+  width: 100px;
+  height: 50px;
+  background-color: #e8f0fe;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.Pbtn:hover {
+  background-color: #004a99;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #333;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
 }
 
 @media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-    align-items: center;
+  .main-container {
+      flex-direction: column;
+      align-items: center;
   }
 
-  .top-register {
-    margin-left: 0;
-    margin-top: 20px;
+  .right-container {
+      margin-left: 0;
+      margin-top: 20px;
   }
 
-  .top-display-screen-container {
-    width: 100%;
-    margin-right: 0;
+  .cash-drawer-display {
+      width: 100%;
+      margin-right: 0;
   }
 }
 
 @media (max-width: 480px) {
   .btn {
-    width: 30px;
-    height: 30px;
+      width: 30px;
+      height: 30px;
   }
 
   .price-screen {
-    font-size: 1rem;
+      font-size: 1rem;
   }
 
   #change-due {
-    font-size: 0.9rem;
+      font-size: 0.9rem;
   }
 }

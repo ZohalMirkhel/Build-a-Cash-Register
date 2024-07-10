@@ -25,6 +25,11 @@ const formatResults = (status, change) => {
   return;
 };
 
+const adjustLayout = () => {
+  const mainContainer = document.querySelector('.main-container');
+  mainContainer.style.alignItems = 'flex-start';
+};
+
 const checkCashRegister = () => {
   if (Number(cash.value) < price) {
     alert('Customer does not have enough money to purchase the item');
@@ -58,13 +63,13 @@ const checkCashRegister = () => {
     result.status = 'CLOSED';
   }
 
-  for (let i = 0; i < reversedCid.length; i++) {  // Fixed the loop condition
+  for (let i = 0; i <= reversedCid.length; i++) {
     if (changeDue >= denominations[i] && changeDue > 0) {
       let count = 0;
       let total = reversedCid[i][1];
       while (total > 0 && changeDue >= denominations[i]) {
         total -= denominations[i];
-        changeDue = parseFloat((changeDue - denominations[i]).toFixed(2));  // Fixed assignment
+        changeDue = parseFloat((changeDue -= denominations[i]).toFixed(2));
         count++;
       }
       if (count > 0) {
@@ -78,6 +83,7 @@ const checkCashRegister = () => {
 
   formatResults(result.status, result.change);
   updateUI(result.change);
+  adjustLayout();
 };
 
 const checkResults = () => {
@@ -99,6 +105,7 @@ const updateUI = change => {
     TWENTY: 'Twenties',
     'ONE HUNDRED': 'Hundreds'
   };
+ 
   
   if (change) {
     change.forEach(changeArr => {
@@ -115,6 +122,19 @@ const updateUI = change => {
       .join('')}  
   `;
 };
+
+
+const buttons = document.querySelectorAll('.btn');
+buttons.forEach(button => {
+  button.addEventListener('click', e => {
+    const btnValue = e.target.textContent;
+    if (btnValue === 'x') {
+      cash.value = '';
+    } else {
+      cash.value += btnValue;
+    }
+  });
+});
 
 purchaseBtn.addEventListener('click', checkResults);
 

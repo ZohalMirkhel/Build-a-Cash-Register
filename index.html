@@ -1,44 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cash Register</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <main>
-      <h1>Cash Register Project</h1>
-      <div id="change-due"></div>
-      <div class="input-div">
-        <label for="cash">Enter cash from customer:</label>
-        <input type="number" id="cash" class="user-input" value="" />
-        <button class="check-btn-styles" id="purchase-btn">Purchase</button>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cash Register</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="main-container">
+    <div class="left-container">
+      <div class="cash-drawer-display" id="cash-drawer-display">
+        <h2>Change in Cash Drawer</h2>
       </div>
-      <div class="container">
-        <div class="top-display-screen-container">
-          <p id="price-screen" class="price-screen"></p>
-          <div class="connector"></div>
+    </div>
+    <div class="right-container">
+      <main>
+        <h1>Cash Register</h1>
+        <div class="input-div">
+          <label for="cash">Enter cash from customer:</label>
+          <input type="text" id="cash" class="user-input" aria-label="Customer Cash Input" />
+          <button class="Pbtn" class="check-btn-styles" id="purchase-btn" aria-label="Purchase Button">Purchase</button>
         </div>
-        <div class="top-register">
-          <div class="btns-container">
-            <button class="btn"></button>
-            <button class="btn"></button>
-            <button class="btn"></button>
-            <button class="btn"></button>
-            <button class="btn"></button>
-            <button class="btn"></button>
-            <button class="btn"></button>
-            <button class="btn"></button>
-            <button class="btn"></button>
+        <div class="container">
+          <div class="top-display-screen-container">
+            <p id="price-screen" class="price-screen"></p>
+            <div class="connector"></div>
           </div>
-          <div id="cash-drawer-display" class="cash-drawer-display"></div>
+          <div class="top-register">
+            <div class="btns-container">
+              <button class="btn" id="btn-1" aria-label="Number 1">1</button>
+              <button class="btn" id="btn-2" aria-label="Number 2">2</button>
+              <button class="btn" id="btn-3" aria-label="Number 3">3</button>
+              <button class="btn" id="btn-4" aria-label="Number 4">4</button>
+              <button class="btn" id="btn-5" aria-label="Number 5">5</button>
+              <button class="btn" id="btn-6" aria-label="Number 6">6</button>
+              <button class="btn" id="btn-7" aria-label="Number 7">7</button>
+              <button class="btn" id="btn-8" aria-label="Number 8">8</button>
+              <button class="btn" id="btn-9" aria-label="Number 9">9</button>
+              <button class="btn" id="btn-0" aria-label="Number 0">0</button>
+              <button class="btn" id="btn-dot" aria-label="Decimal Point">.</button>
+              <button class="btn" id="btn-clear" aria-label="Clear Input">x</button>
+            </div>
+          </div>
+          <div class="bottom-register">
+            <div id="change-due" class="change-due">
+              <h2>Change Due</h2>
+            </div>
+          </div>
         </div>
-        <div class="bottom-register">
-          <div class="circle"></div>
-        </div>
-      </div>
-    </main>
-    <script src="./script.js"></script>
-  </body>
+      </main>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
 </html>
