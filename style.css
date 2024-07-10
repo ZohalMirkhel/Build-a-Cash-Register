@@ -1,8 +1,5 @@
 body {
-  font-family:
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
   background-color: #f0f4f8;
   color: #333;
   display: flex;
@@ -109,7 +106,7 @@ label {
   background-color: #bbb;
 }
 
-  .cash-drawer-display {
+.cash-drawer-display {
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 8px;
