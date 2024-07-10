@@ -19,11 +19,18 @@
         <div class="input-div">
           <label for="cash">Enter cash from customer:</label>
           <input type="text" id="cash" class="user-input" aria-label="Customer Cash Input" />
-          <button class="Pbtn" class="check-btn-styles" id="purchase-btn" aria-label="Purchase Button">Purchase</button>
+          <button class="Pbtn check-btn-styles" id="purchase-btn" aria-label="Purchase Button">Purchase</button>
+        </div>
+        <div class="input-div">
+          <label for="payment-method">Choose Payment Method:</label>
+          <select id="payment-method" class="user-input" aria-label="Payment Method Selection">
+            <option value="cash">Cash</option>
+            <option value="card">Card</option>
+            <option value="gift-card">Gift Card</option>
+          </select>
         </div>
         <div class="container">
           <div class="top-display-screen-container">
-            <p id="price-screen" class="price-screen"></p>
             <div class="connector"></div>
           </div>
           <div class="top-register">
@@ -48,6 +55,7 @@
             </div>
           </div>
         </div>
+        <button class="btn" id="print-receipt-btn" aria-label="Print Receipt Button">Print Receipt</button>
       </main>
     </div>
   </div>
