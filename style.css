@@ -157,6 +157,10 @@ label {
       width: 100%;
       margin-right: 0;
   }
+
+  .cash-drawer-display {
+    margin-top: 100px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -171,5 +175,9 @@ label {
 
   #change-due {
       font-size: 0.9rem;
+  }
+
+  .cash-drawer-display {
+    margin-top: 50px;
   }
 }
